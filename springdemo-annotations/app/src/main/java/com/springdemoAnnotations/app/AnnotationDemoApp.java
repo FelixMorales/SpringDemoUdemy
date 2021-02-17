@@ -1,6 +1,7 @@
 package com.springdemoAnnotations.app;
 
 
+import com.springdemoAnnotations.common.models.BaseCoach;
 import com.springdemoAnnotations.common.models.interfaces.Coach;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -12,9 +13,11 @@ public class AnnotationDemoApp
 
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext( "applicationContext.xml" );
 
-        Coach theCoach = context.getBean( "tennisCoach", Coach.class );
+        BaseCoach theCoach = context.getBean( "tennisBaseCoach", BaseCoach.class );
 
+        System.out.println( theCoach.getEmail() );
         System.out.println( theCoach.getDailyWorkout() );
+        System.out.println( theCoach.getDailyFortune() );
 
         context.close();
     }
