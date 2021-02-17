@@ -3,20 +3,17 @@ package com.springdemoAnnotations.common.models;
 import com.springdemoAnnotations.common.models.interfaces.Coach;
 import com.springdemoAnnotations.common.models.interfaces.FortuneService;
 import org.springframework.beans.factory.DisposableBean;
+import org.springframework.stereotype.Component;
 
-public class TrackCoach implements Coach, DisposableBean
+@Component
+public class TennisCoach implements Coach, DisposableBean
 {
     private FortuneService _fortuneService;
-
-    public TrackCoach(FortuneService fortuneService)
-    {
-        _fortuneService = fortuneService;
-    }
 
     @Override
     public String getDailyWorkout()
     {
-        return "run a hard 5k";
+        return "Practice your backhand volley";
     }
 
     @Override
@@ -28,12 +25,12 @@ public class TrackCoach implements Coach, DisposableBean
     // Spring init method
     public void SpringStartUp()
     {
-        System.out.println( "TrackCoach: Inside method SpringStartUp" );
+        System.out.println( "TennisCoach: Inside method SpringStartUp" );
     }
 
     @Override
     public void destroy() throws Exception
     {
-        System.out.println( "TrackCoach: Inside method SpringDestroy" );
+        System.out.println( "TennisCoach: Inside method SpringDestroy" );
     }
 }

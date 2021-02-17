@@ -8,19 +8,5 @@
     http://www.springframework.org/schema/context/spring-context.xsd">
 
     <context:property-placeholder location="classpath:sport.properties"/>
-    <bean id="myFortune" class="com.springdemoAnnotations.common.models.HappyFortuneService">
-    </bean>
-    <bean id="myCoach" class="com.springdemoAnnotations.common.models.TrackCoach">
-        <constructor-arg ref="myFortune"/>
-    </bean>
-    <bean id="myCricketCoach" class="com.springdemoAnnotations.common.models.CricketCoach">
-        <property name="fortuneService" ref="myFortune"/>
-        <property name="emailAddress" value="${foo.email}"/>
-        <property name="team" value="${foo.team}"/>
-    </bean>
-    <bean id="myLoggerConfig" class="com.springdemoAnnotations.common.utilities.LoggerConfig" init-method="initLogger">
-        <property name="rootLoggerLevel" value="FINE" />
-        <property name="printedLoggerLevel" value="FINE"/>
-    </bean>
-
+    <context:component-scan base-package="com.springdemoAnnotations.common.models"/>
 </beans>

@@ -33,7 +33,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.springdemoAnnotations.app.App</mainClass>
+                            <mainClass>com.springdemoAnnotations.app.AnnotationDemoApp</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
@@ -58,7 +58,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>com.springdemoAnnotations.app.App</mainClass>
+                            <mainClass>com.springdemoAnnotations.app.AnnotationDemoApp</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
