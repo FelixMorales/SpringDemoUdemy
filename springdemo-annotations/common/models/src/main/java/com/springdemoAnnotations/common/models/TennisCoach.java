@@ -7,10 +7,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
-public class TennisBaseCoach extends BaseCoach implements DisposableBean
+public class TennisCoach extends BaseCoach implements DisposableBean
 {
 
-    public TennisBaseCoach()
+    public TennisCoach()
     {
         System.out.println( "TennisCoach: Inside default constructor" );
     }
