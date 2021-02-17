@@ -7,12 +7,12 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="myFortune" class="com.springdemo.common.models.HappyFortuneService">
+    <bean id="myFortune" class="com.springdemoAnnotations.common.models.HappyFortuneService">
     </bean>
-    <bean id="myCoach" class="com.springdemo.common.models.TrackCoach" scope="prototype">
+    <bean id="myCoach" class="com.springdemoAnnotations.common.models.TrackCoach" scope="prototype">
         <constructor-arg ref="myFortune"/>
     </bean>
-    <bean id="myLoggerConfig" class="com.springdemo.common.utilities.LoggerConfig" init-method="initLogger">
+    <bean id="myLoggerConfig" class="com.springdemoAnnotations.common.utilities.LoggerConfig" init-method="initLogger">
         <property name="rootLoggerLevel" value="FINE" />
         <property name="printedLoggerLevel" value="FINE"/>
     </bean>

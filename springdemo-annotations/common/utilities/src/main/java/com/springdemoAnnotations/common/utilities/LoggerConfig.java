@@ -1,4 +1,4 @@
-package com.springdemo.common.utilities;
+package com.springdemoAnnotations.common.utilities;
 
 import java.util.logging.ConsoleHandler;
 import java.util.logging.Level;

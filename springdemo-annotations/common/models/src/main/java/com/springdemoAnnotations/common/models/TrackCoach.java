@@ -1,7 +1,7 @@
-package com.springdemo.common.models;
+package com.springdemoAnnotations.common.models;
 
-import com.springdemo.common.models.interfaces.Coach;
-import com.springdemo.common.models.interfaces.FortuneService;
+import com.springdemoAnnotations.common.models.interfaces.Coach;
+import com.springdemoAnnotations.common.models.interfaces.FortuneService;
 import org.springframework.beans.factory.DisposableBean;
 
 public class TrackCoach implements Coach, DisposableBean

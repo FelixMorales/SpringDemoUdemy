@@ -1,4 +1,4 @@
-package com.springdemo.common.models.interfaces;
+package com.springdemoAnnotations.common.models.interfaces;
 
 public interface Coach
 {
