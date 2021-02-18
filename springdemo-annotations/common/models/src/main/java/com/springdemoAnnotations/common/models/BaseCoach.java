@@ -9,6 +9,9 @@ public abstract class BaseCoach implements Coach
     @Value( "${foo.email}" )
     private String _email;
 
+    @Value( "${foo.team}" )
+    private String _team;
+
     protected FortuneService _fortuneService;
 
     public String getEmail()
@@ -16,7 +19,12 @@ public abstract class BaseCoach implements Coach
         return _email;
     }
 
-    protected abstract void setFortuneService(FortuneService fortuneService);
+    public String getTeam()
+    {
+        return _team;
+    }
+
+    public abstract void setFortuneService(FortuneService fortuneService);
 
     @Override
     public String getDailyFortune()

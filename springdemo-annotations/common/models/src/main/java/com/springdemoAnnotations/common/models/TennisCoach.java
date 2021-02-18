@@ -21,7 +21,7 @@ public class TennisCoach extends BaseCoach
 
     @Override
     @Autowired
-    protected void setFortuneService( @Qualifier( "randomFortuneService" ) FortuneService fortuneService )
+    public void setFortuneService( @Qualifier( "randomFortuneService" ) FortuneService fortuneService )
     {
         System.out.println( "TennisCoach: Inside private method setFortuneService" );
         _fortuneService = fortuneService;
