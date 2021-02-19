@@ -8,7 +8,7 @@
     <artifactId>springMvcDemo</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>services</module>
+        <module>controllers</module>
         <module>common</module>
     </modules>
     <packaging>pom</packaging>
