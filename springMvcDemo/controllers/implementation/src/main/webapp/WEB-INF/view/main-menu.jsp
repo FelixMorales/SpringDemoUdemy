@@ -13,7 +13,7 @@
 <body>
     <h2>Spring MVC Demo - HomePage</h2>
     <label>
-        Go to: <a href="showForm">Student Registration</a>
+        Go to: <a href="hello/showForm">Student Registration</a>
     </label>
 </body>
 </html>
