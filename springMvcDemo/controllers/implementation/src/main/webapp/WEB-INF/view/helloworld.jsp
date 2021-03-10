@@ -20,5 +20,9 @@
     <label>
         Message: ${message}
     </label>
+    <br><br>
+    <label>
+        <a href="${pageContext.servletContext.contextPath}/">Back to Menu</a>
+    </label>
 </body>
 </html>
