@@ -19,5 +19,9 @@
     <label>
         Go to: <a href="student/showForm">Student Confirmation</a>
     </label>
+    <br><br>
+    <label>
+        Go to: <a href="customer/showForm">Customer Confirmation</a>
+    </label>
 </body>
 </html>
