@@ -24,6 +24,10 @@
     <label>
         <a>Postal Code: ${customer.postalCode}</a>
     </label>
+    <br>
+    <label>
+        <a>Course Code: ${customer.courseCode}</a>
+    </label>
     <br><br>
     <label>
         <a href="${pageContext.servletContext.contextPath}/">Back to Menu</a>

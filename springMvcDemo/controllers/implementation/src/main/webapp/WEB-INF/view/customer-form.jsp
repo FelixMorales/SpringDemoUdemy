@@ -30,6 +30,10 @@
         <a>Postal Code (*):</a>
         <form:input path="postalCode"/>
         <form:errors path="postalCode" cssClass="error"/>
+        <br>
+        <a>Course Code:</a>
+        <form:input path="courseCode"/>
+        <form:errors path="courseCode" cssClass="error"/>
         <br><br>
         <input type="submit" value="Submit"/>
     </form:form>

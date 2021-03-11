@@ -1,5 +1,7 @@
 package com.springMvcDemo.common.models;
 
+import com.springMvcDemo.common.validations.annotations.CourseCode;
+
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -21,6 +23,9 @@ public class Customer
 
     @Pattern( regexp = "^[a-zA-Z0-9{5}]", message = "invalid input")
     private String _postalCode;
+
+    @CourseCode(value = "TEST", message = "must start with TEST")
+    private String _courseCode;
 
     public String getFirstName()
     {
@@ -62,10 +67,21 @@ public class Customer
         _postalCode = postalCode;
     }
 
+    public String getCourseCode()
+    {
+        return _courseCode;
+    }
+
+    public void setCourseCode( String courseCode )
+    {
+        _courseCode = courseCode;
+    }
+
     @Override
     public String toString()
     {
         return "Customer{" + "_firstName='" + _firstName + '\'' + ", _lastName='" + _lastName + '\'' +
-               ", _freePasses=" + _freePasses + ", _postalCode='" + _postalCode + '\'' + '}';
+               ", _freePasses=" + _freePasses + ", _postalCode='" + _postalCode + '\'' + ", _courseCode='" +
+               _courseCode + '\'' + '}';
     }
 }
