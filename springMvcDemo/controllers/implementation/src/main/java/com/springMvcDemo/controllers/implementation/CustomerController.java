@@ -5,6 +5,7 @@ import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -33,16 +34,21 @@ public class CustomerController
     }
 
     @RequestMapping("/processForm")
-    public String processForm( @Valid @ModelAttribute("customer") Customer theCustomer,
-            BindingResult theBindingResult )
+    public String processForm( @Valid @ModelAttribute("customer") Customer customer,
+            BindingResult bindingResult )
     {
-        System.out.println("Last name: |" + theCustomer.getLastName() + "|");
+        System.out.println("Customer: "+customer.toString());
 
-        if (theBindingResult.hasErrors()) {
+        if (bindingResult.hasErrors()) {
+
+            for( ObjectError error : bindingResult.getAllErrors() )
+            {
+                System.out.println( error.toString() );
+            }
+
             return "customer-form";
         }
-        else {
-            return "customer-confirmation";
-        }
+
+        return "customer-confirmation";
     }
 }

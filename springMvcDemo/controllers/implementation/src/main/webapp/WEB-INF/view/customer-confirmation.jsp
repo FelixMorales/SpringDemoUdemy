@@ -16,6 +16,14 @@
     <label>
         <a>The customer is confirmed: ${customer.firstName} ${customer.lastName}</a>
     </label>
+    <br>
+    <label>
+        <a>Free passes: ${customer.freePasses}</a>
+    </label>
+    <br>
+    <label>
+        <a>Postal Code: ${customer.postalCode}</a>
+    </label>
     <br><br>
     <label>
         <a href="${pageContext.servletContext.contextPath}/">Back to Menu</a>

@@ -21,7 +21,15 @@
         <br>
         <a>Last Name (*):</a>
         <form:input path="lastName"/>
-        <form:errors path="lastName"/>
+        <form:errors path="lastName" cssClass="error"/>
+        <br>
+        <a>Free Passes (*):</a>
+        <form:input path="freePasses"/>
+        <form:errors path="freePasses" cssClass="error"/>
+        <br>
+        <a>Postal Code (*):</a>
+        <form:input path="postalCode"/>
+        <form:errors path="postalCode" cssClass="error"/>
         <br><br>
         <input type="submit" value="Submit"/>
     </form:form>
