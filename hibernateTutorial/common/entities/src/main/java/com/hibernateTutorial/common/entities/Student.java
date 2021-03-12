@@ -42,7 +42,7 @@ public class Student extends BaseEntity
         return _email;
     }
 
-    private void setEmail( String email )
+    public void setEmail( String email )
     {
         _email = email;
     }
@@ -54,6 +54,13 @@ public class Student extends BaseEntity
     public Student( long id )
     {
         super(id);
+    }
+
+    public Student( String firstName, String lastName, String email )
+    {
+        _firstName = firstName;
+        _lastName = lastName;
+        _email = email;
     }
 
     @Override
