@@ -3,17 +3,25 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet("/DemoServlet")
+@WebServlet("/testDB")
 public class Servlet extends HttpServlet
 {
 
-    protected void doGet( HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    protected void doGet( HttpServletRequest request, HttpServletResponse response) throws ServletException
     {
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-        out.println("<h3>Hello World!</h3>");
+        Testdb test = new Testdb();
+
+        try
+        {
+            PrintWriter out = response.getWriter();
+            test.TestConnection();
+            out.println( "Connected successfully!" );
+        }
+        catch ( Exception e )
+        {
+            throw new ServletException( e );
+        }
     }
 }
