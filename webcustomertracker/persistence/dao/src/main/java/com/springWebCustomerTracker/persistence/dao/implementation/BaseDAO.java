@@ -77,7 +77,6 @@ public abstract class BaseDAO<T> implements IBaseDAO<T>
      *
      * @return entity list
      */
-    @Transactional
     public List<T> findAll()
     {
         List<T> list = null;

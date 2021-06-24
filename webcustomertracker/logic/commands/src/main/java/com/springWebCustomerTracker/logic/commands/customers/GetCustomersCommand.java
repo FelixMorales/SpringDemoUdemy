@@ -4,11 +4,12 @@ import com.springWebCustomerTracker.common.entities.Customer;
 import com.springWebCustomerTracker.logic.commands.BaseCommand;
 import com.springWebCustomerTracker.persistence.dao.interfaces.ICustomerDAO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Repository
+@Service
 public class GetCustomersCommand extends BaseCommand<List<Customer>>
 {
     private ICustomerDAO _customerDAO;
@@ -20,6 +21,7 @@ public class GetCustomersCommand extends BaseCommand<List<Customer>>
     }
 
     @Override
+    @Transactional
     public void execute()
     {
         _customers = _customerDAO.findAll();
