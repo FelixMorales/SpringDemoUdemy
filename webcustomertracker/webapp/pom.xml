@@ -10,32 +10,8 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>webapp</artifactId>
     <version>1.0</version>
-    <packaging>war</packaging>
-
-    <dependencies>
-        <dependency>
-            <groupId>com.spring-web-customer-tracker</groupId>
-            <artifactId>dao</artifactId>
-            <version>1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>4.0.1</version>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>3.2.0</version>
-                <configuration>
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
-                    <warName>webapp-1.0</warName>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+    <modules>
+        <module>implementation</module>
+    </modules>
+    <packaging>pom</packaging>
 </project>
