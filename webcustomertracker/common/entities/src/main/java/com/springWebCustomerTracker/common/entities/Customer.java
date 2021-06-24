@@ -28,7 +28,7 @@ public class Customer extends BaseEntity
         _firstName = firstName;
     }
 
-    private String getLastName()
+    public String getLastName()
     {
         return _lastName;
     }
