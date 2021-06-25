@@ -4,7 +4,10 @@ import javax.persistence.EntityManager;
 
 import com.springWebCustomerTracker.common.exceptions.jpa.AddException;
 import com.springWebCustomerTracker.common.exceptions.jpa.ConstraintException;
+import com.springWebCustomerTracker.common.exceptions.jpa.DeleteException;
 import com.springWebCustomerTracker.common.exceptions.jpa.FindAllException;
+import com.springWebCustomerTracker.common.exceptions.jpa.FindException;
+import com.springWebCustomerTracker.common.exceptions.jpa.UpdateException;
 import com.springWebCustomerTracker.persistence.dao.interfaces.IBaseDAO;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,7 +72,21 @@ public abstract class BaseDAO<T> implements IBaseDAO<T>
      */
     public T update( T entity )
     {
-        //TODO: update implementation
+        EntityManager em = _sessionFactory.getCurrentSession();
+
+        try
+        {
+            em.merge( entity );
+            em.flush();
+        }
+        catch ( PersistenceException | IllegalStateException e )
+        {
+            throw new ConstraintException( e, e.getMessage() );
+        }
+        catch ( Exception e )
+        {
+            throw new UpdateException( e, e.getMessage() );
+        }
 
         return entity;
     }
@@ -82,7 +99,17 @@ public abstract class BaseDAO<T> implements IBaseDAO<T>
      */
     public T delete( T entity )
     {
-        //TODO: delete implementation
+        EntityManager em = _sessionFactory.getCurrentSession();
+
+        try
+        {
+            em.remove( entity );
+            em.flush();
+        }
+        catch ( Exception e )
+        {
+            throw new DeleteException( e, e.getMessage() );
+        }
 
         return entity;
     }
@@ -121,7 +148,7 @@ public abstract class BaseDAO<T> implements IBaseDAO<T>
 
     /**
      * Name: find
-     * Description: method to get the specific entity from the DB.
+     * Description: method to get the specific entity by id from the DB.
      *
      * @param id identifier
      */
@@ -129,7 +156,14 @@ public abstract class BaseDAO<T> implements IBaseDAO<T>
     {
         T result = null;
 
-        //TODO: find implementation
+        try
+        {
+            result = _sessionFactory.getCurrentSession().find( _class, id );
+        }
+        catch ( Exception e )
+        {
+            throw new FindException( e, e.getMessage() );
+        }
 
         return result;
     }

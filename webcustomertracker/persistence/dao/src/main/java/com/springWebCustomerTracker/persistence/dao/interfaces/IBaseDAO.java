@@ -10,6 +10,8 @@ public interface IBaseDAO<T>
 
     T update( T update );
 
+    T delete( T entity );
+
     List<T> findAll();
 
     T find( int id );

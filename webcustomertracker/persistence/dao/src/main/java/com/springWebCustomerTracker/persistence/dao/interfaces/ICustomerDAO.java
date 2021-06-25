@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface ICustomerDAO extends IBaseDAO<Customer>
 {
-
+    List<Customer> getCustomersOrderedByLastName();
 }

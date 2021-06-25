@@ -21,19 +21,42 @@ public class CustomerService extends BaseService
         _customerDAO = dao;
     }
 
-    public List<Customer> getCustomers(){
-
+    public List<Customer> getCustomers()
+    {
         BaseCommand<List<Customer>> command = CommandFactory.createGetCustomersCommand( _customerDAO );
         command.execute();
 
         return command.getReturnParams();
     }
 
-    public Customer addCustomer( Customer customer ){
+    public Customer saveCustomer( Customer customer )
+    {
+        BaseCommand<Customer> command;
 
-        BaseCommand<Customer> command = CommandFactory.createAddCustomerCommand( _customerDAO, customer );
+        if( customer.getId() > 0 )
+        {
+            command = CommandFactory.createUpdateCustomerCommand( _customerDAO, customer );
+        }
+        else
+        {
+            command = CommandFactory.createAddCustomerCommand( _customerDAO, customer );
+        }
+
         command.execute();
 
         return command.getReturnParams();
+    }
+
+    public Customer getCustomer( int id )
+    {
+        BaseCommand<Customer> command = CommandFactory.createGetCustomerCommand( _customerDAO, id );
+        command.execute();
+
+        return command.getReturnParams();
+    }
+
+    public void deleteCustomer( Customer customer )
+    {
+        CommandFactory.createDeleteCustomerCommand( _customerDAO, customer ).execute();
     }
 }

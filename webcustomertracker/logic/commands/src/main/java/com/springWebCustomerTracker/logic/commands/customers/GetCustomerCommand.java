@@ -4,26 +4,27 @@ import com.springWebCustomerTracker.common.entities.Customer;
 import com.springWebCustomerTracker.logic.commands.BaseCommand;
 import com.springWebCustomerTracker.persistence.dao.interfaces.ICustomerDAO;
 
-import java.util.List;
-
-public class GetCustomersCommand extends BaseCommand<List<Customer>>
+public class GetCustomerCommand extends BaseCommand<Customer>
 {
     private ICustomerDAO _customerDAO;
-    private List<Customer> _customers;
+    private Customer _result;
+    private int _id;
 
-    public GetCustomersCommand( ICustomerDAO dao ){
-        _customerDAO = dao;
+    public GetCustomerCommand( ICustomerDAO customerDAO, int id )
+    {
+        _customerDAO = customerDAO;
+        _id = id;
     }
 
     @Override
     public void execute()
     {
-        _customers = _customerDAO.getCustomersOrderedByLastName();
+        _result = _customerDAO.find( _id );
     }
 
     @Override
-    public List<Customer> getReturnParams()
+    public Customer getReturnParams()
     {
-        return _customers;
+        return _result;
     }
 }
