@@ -2,12 +2,14 @@ package com.springWebCustomerTracker.persistence.dao.implementation;
 
 import javax.persistence.EntityManager;
 
+import com.springWebCustomerTracker.common.exceptions.jpa.AddException;
+import com.springWebCustomerTracker.common.exceptions.jpa.ConstraintException;
 import com.springWebCustomerTracker.common.exceptions.jpa.FindAllException;
 import com.springWebCustomerTracker.persistence.dao.interfaces.IBaseDAO;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.PersistenceException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.lang.reflect.ParameterizedType;
@@ -40,7 +42,21 @@ public abstract class BaseDAO<T> implements IBaseDAO<T>
     public T insert( T entity )
     {
 
-        //TODO: insert implementation
+        EntityManager em = _sessionFactory.getCurrentSession();
+
+        try
+        {
+            em.persist( entity );
+            em.flush();
+        }
+        catch ( PersistenceException | IllegalStateException e )
+        {
+            throw new ConstraintException( e, e.getMessage() );
+        }
+        catch ( Exception e )
+        {
+            throw new AddException( e, e.getMessage() );
+        }
 
         return entity;
     }

@@ -11,7 +11,7 @@
     <artifactId>webapp</artifactId>
     <version>1.0</version>
     <modules>
-        <module>implementation</module>
+        <module>controllers</module>
     </modules>
     <packaging>pom</packaging>
 </project>
