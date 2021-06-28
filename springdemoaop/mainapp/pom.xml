@@ -13,6 +13,13 @@
     <version>1.0</version>
     <packaging>jar</packaging>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.springdemoaop</groupId>
+            <artifactId>dao</artifactId>
+            <version>1.0</version>
+        </dependency>
+    </dependencies>
     <build>
         <plugins>
             <plugin>
@@ -21,7 +28,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.springdemoaop.mainapp.app</mainClass>
+                            <mainClass>com.springdemoaop.mainapp.App</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
@@ -46,7 +53,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>com.springdemoaop.mainapp.app</mainClass>
+                            <mainClass>com.springdemoaop.mainapp.App</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
