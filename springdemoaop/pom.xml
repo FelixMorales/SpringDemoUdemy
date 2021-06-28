@@ -10,6 +10,7 @@
   <modules>
     <module>mainapp</module>
     <module>persistence</module>
+    <module>common</module>
   </modules>
   <packaging>pom</packaging>
 

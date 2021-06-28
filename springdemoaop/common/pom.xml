@@ -9,22 +9,11 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.springdemoaop</groupId>
-            <artifactId>entities</artifactId>
-            <version>1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.springdemoaop</groupId>
-            <artifactId>exceptions</artifactId>
-            <version>1.0</version>
-        </dependency>
-    </dependencies>
-    <artifactId>persistence</artifactId>
+    <artifactId>common</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>dao</module>
+        <module>entities</module>
+        <module>exceptions</module>
     </modules>
 
 
