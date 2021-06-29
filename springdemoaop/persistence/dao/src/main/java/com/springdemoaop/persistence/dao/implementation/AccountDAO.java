@@ -8,9 +8,17 @@ import org.springframework.stereotype.Repository;
 public class AccountDAO /*extends BaseDAO<Account>*/ implements IAccountDAO
 {
     @Override
-    public Account testAddAccount( Account account )
+    public Account addAccount( Account account )
     {
         System.out.println( "ADDING ACCOUNT" );
+
+        return account;
+    }
+
+    @Override
+    public Account getAccountDetails( Account account )
+    {
+        System.out.println( "GETTING ACCOUNT DETAILS" );
 
         return account;
     }

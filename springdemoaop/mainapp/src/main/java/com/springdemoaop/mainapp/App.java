@@ -1,6 +1,7 @@
 package com.springdemoaop.mainapp;
 
 import com.springdemoaop.common.EntityFactory;
+import com.springdemoaop.common.entities.Account;
 import com.springdemoaop.mainapp.config.AppConfig;
 import com.springdemoaop.persistence.dao.interfaces.IAccountDAO;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -13,7 +14,13 @@ public class App
 
         IAccountDAO accountDAO = context.getBean( "accountDAO", IAccountDAO.class );
 
-        accountDAO.testAddAccount( EntityFactory.createAccount() );
+        Account account = EntityFactory.createAccount();
+        account.setId( 1 );
+
+        accountDAO.addAccount( account );
+
+        System.out.println( "-------------------------------------- \n" );
+        accountDAO.getAccountDetails( account );
 
         context.close();
     }

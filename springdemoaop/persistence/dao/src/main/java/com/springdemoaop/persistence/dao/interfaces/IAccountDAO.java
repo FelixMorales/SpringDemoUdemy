@@ -4,5 +4,7 @@ import com.springdemoaop.common.entities.Account;
 
 public interface IAccountDAO /*extends IBaseDAO<Account>*/
 {
-    Account testAddAccount( Account account );
+    Account addAccount( Account account );
+
+    Account getAccountDetails( Account account );
 }
